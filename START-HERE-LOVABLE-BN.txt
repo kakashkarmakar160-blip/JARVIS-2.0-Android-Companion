@@ -1,0 +1,15 @@
+JARVIS 2.0 — LOVABLE START HERE
+
+1) Upload this project ZIP to your Lovable project (or import the website source).
+2) Open LOVABLE_MASTER_IMPLEMENTATION_BN.md and paste its full contents into Lovable as the implementation instruction.
+3) Tell Lovable: “Audit the uploaded project first. Preserve existing features. Implement Phase 1 first and show the build/test results before moving to Phase 2.”
+4) Configure the Cloudflare Worker URL in Settings. Default URL: https://little-forest-7b75.kakashkarmakar159.workers.dev
+5) Add GEMINI_API_KEY only as a Cloudflare Worker Secret. Never paste it into Lovable frontend code or GitHub.
+6) Native Android controls require a separate Android Studio Kotlin project and real-device permission testing. Lovable website alone cannot control every phone feature.
+
+Files:
+- LOVABLE_MASTER_IMPLEMENTATION_BN.md — full build instructions
+- jarvis-2.0-logo-concept.png — logo concept asset
+- Existing website, worker and Android starter source — preserved
+
+This ZIP is source code, not an installable APK. Do not claim phone-wide control until the Android companion is built and tested.
