@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'android-companion/**'
+      - 'JARVIS_Android_Companion_Build_Patch.zip'
       - '.github/workflows/android-apk.yml'
 
 permissions:
@@ -17,20 +17,28 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up Java 17
+
+      - name: Extract Android project
+        run: |
+          unzip -o JARVIS_Android_Companion_Build_Patch.zip -d .
+
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-      - name: Build debug APK
-        run: gradle -p android-companion :app:assembleDebug
-      - name: Upload APK artifact
+
+      - name: Build APK
+        run: |
+          gradle -p jarvis_android_patch/android-companion :app:assembleDebug
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: jarvis-companion-debug-apk
-          path: android-companion/app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
+          path: jarvis_android_patch/android-companion/app/build/outputs/apk/debug/app-debug.apk
